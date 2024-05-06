@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import Login from './component/Login.jsx';
+import About from './component/About.jsx';
+import RegisterDonor from './component/RegisterDonor.jsx';
+import FindBlood from './component/FindBlood.jsx';
+import Accueil from './component/Accueil.jsx';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+             
+              
+              <Route path="/login" element={<Login />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/register" element={<RegisterDonor />} />
+              <Route path="/findblood" element={<FindBlood />} />
+              <Route path="/" element={<Accueil />} />
+    
+      </Routes>
+    </BrowserRouter>
   );
 }
 
