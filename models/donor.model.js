@@ -4,6 +4,12 @@ module.exports = mongoose => {
         // name: String,
         // course: String,
         // registered: Boolean,
+        firstName: String,
+        lastName: String,
+        address: String,
+        email: String,
+        groupe: String,
+        lastDonate: String,
       },
       { timestamps: true }
     );

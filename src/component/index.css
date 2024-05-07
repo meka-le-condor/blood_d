@@ -1,0 +1,26 @@
+.acceuil{
+background-image: url("../../public/bg.jpeg");
+background-repeat: no-repeat;
+
+background-size: contain;
+background-position: absolute;
+background-position-x: right;
+
+}
+.nav{
+    display: flex;
+    justify-content: end;
+    padding-right:15px ;
+  
+}
+li{
+      padding:20px ;
+        text-decoration-skip: 12;
+}
+.header{
+    background: #270202;
+    width: 100%;
+    height: 50px;
+    color:white ;
+    margin-top:-16px ;
+}
