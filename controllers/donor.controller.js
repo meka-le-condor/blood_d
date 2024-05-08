@@ -9,8 +9,14 @@ exports.create = function (req, res) {
         }
         // Create a donor
         const donor = new Donor({
-        name: req.body.name,
-        //othher
+            firstName: req.body.firstName,
+            lastName:  req.body.lastName,
+            address:  req.body.address,
+            email:  req.body.email,
+            groupe:  req.body.groupe,
+            lastDonate:  req.body.lastDonate,
+        
+        
         });
 // Save donor in the database
     donor 

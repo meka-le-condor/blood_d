@@ -1,21 +1,24 @@
 const express = require("express");
 
 const app = express();
-
+const cors = require('cors');
 const logger = require("morgan");
-
+const donorController = require('./controllers/donor.controller');
 const PORT = process.env.PORT || 4002; 
+app.use(cors());
 
 const db = require("./models");
 
 const bodyParser=require("body-parser");
 app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:true})); 
+
 //recuper tous les api 
-require("./routes/app.routes")(app);
+const route =require("./routes/app.routes")
+app.use("/api",route)
 
 db.mongoose
-  .connect(db.url)
+  .connect(db.url)  
   .then(() => {
     console.log(`Connected to the database '${db.url}' !`);
   })
@@ -23,7 +26,7 @@ db.mongoose
     console.log(`Cannot connect to the database '${db.url}' !`, err);
     process.exit();
   });
-
+  
 app.use(logger("dev"));
 
 

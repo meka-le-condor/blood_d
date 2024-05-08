@@ -1,4 +1,4 @@
-import './App.css';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import Login from './component/Login.jsx';
@@ -8,20 +8,24 @@ import FindBlood from './component/FindBlood.jsx';
 import Accueil from './component/Accueil.jsx';
 
 
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-             
+    <>
+ 
+      <BrowserRouter>
+        <Routes>
               
-              <Route path="/login" element={<Login />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/register" element={<RegisterDonor />} />
-              <Route path="/findblood" element={<FindBlood />} />
-              <Route path="/" element={<Accueil />} />
-    
-      </Routes>
-    </BrowserRouter>
+                
+                <Route path="/login" element={<Login />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/register" element={<RegisterDonor />} />
+                <Route path="/findblood" element={<FindBlood />} />
+                <Route path="/" element={<Accueil />} />
+      
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
