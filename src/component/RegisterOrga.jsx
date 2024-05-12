@@ -4,7 +4,7 @@ import Header from "./Header";
 import toastr from "toastr";
 import { ToastContainer, toast } from 'react-toastify';   
 
-function RegisterDonor() {
+function Register_Orga() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -77,7 +77,7 @@ function RegisterDonor() {
           <div className="bg-white py-6 sm:py-8 lg:py-12">
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
               <div className="mb-10 md:mb-16  text-white bg-gradient-to-r from-[#37182b] to-[#92326d]">
-                <h2 className="mb-4 text-center text-2xl font-bold md:mb-6 lg:text-3xl">Register For Donor</h2>
+                <h2 className="mb-4 text-center text-2xl font-bold md:mb-6 lg:text-3xl">Register For Organization</h2>
                 <p className="mx-auto max-w-screen-md text-center text-white md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
               </div>
               <form className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" onSubmit={handleSubmit}>
@@ -126,4 +126,4 @@ function RegisterDonor() {
   );
 }
 
-export default RegisterDonor; 
+export default Register_Orga; 

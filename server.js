@@ -10,7 +10,7 @@ app.use(cors());
 const db = require("./models");
 
 const bodyParser=require("body-parser");
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());  
 app.use(bodyParser.urlencoded({extended:true})); 
 
 //recuper tous les api 
@@ -27,7 +27,7 @@ db.mongoose
     process.exit();
   });
   
-app.use(logger("dev"));
+app.use(logger("dev")); 
 
 
 

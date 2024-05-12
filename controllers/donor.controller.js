@@ -1,34 +1,44 @@
 const db = require("../models");
 const Donor = db.donor;
-exports.create = function (req, res) {
 
-      // Validate request
-      if (!req.body ) {
+exports.create = function (req, res) {
+    // Valider la requête
+    if (!req.body) {
         res.status(400).send({ message: "Content can not be empty!" });
         return;
-        }
-        // Create a donor
-        const donor = new Donor({
-            firstName: req.body.firstName,
-            lastName:  req.body.lastName,
-            address:  req.body.address,
-            email:  req.body.email,
-            groupe:  req.body.groupe,
-            lastDonate:  req.body.lastDonate,
-        
-        
+    }
+
+    // Rechercher un donateur avec le même e-mail
+    Donor.findOne({ email: req.body.email })
+        .then(existingDonor => {
+            if (existingDonor) {
+                // Un donateur avec le même e-mail existe déjà
+                res.status(401).send({ messageC: "Un donateur avec cet e-mail existe déjà!" });
+                return;
+            }
+
+            // Créer un nouveau donateur
+            const donor = new Donor({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                address: req.body.address,
+                email: req.body.email,
+                groupe: req.body.groupe,
+                lastDonate: req.body.lastDonate
+            });
+
+            // Enregistrer le donateur dans la base de données
+            donor.save()
+                .then(data => {
+                    res.send(data);
+                })
+                .catch(err => {
+                    res.status(500).send({
+                        message: err.message || "Une erreur s'est produite lors de la création du donateur."
+                    });
+                });
+        })
+        .catch(err => {
+            res.status(500).send({ message: err.message || "Une erreur s'est produite lors de la recherche du donateur." });
         });
-// Save donor in the database
-    donor 
-    .save(donor)
-    .then(data => {
-    res.send(data);
-    })
-    .catch(err => {
-    res.status(500).send({
-        message:
-        err.message || "Some error occurred while creating the donor.",
-    });
-    });
 };
-   

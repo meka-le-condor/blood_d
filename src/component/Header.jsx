@@ -14,6 +14,8 @@ function Header (){
                     <a href="/" class="text-lg font-semibold text-[#46052D]">Home</a>
                     <a href="/about" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-[#46052D] active:text-[#46052D]">About us</a>
                     <a href="/register" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-[#46052D] active:text-[#46052D]">Register_donor</a>
+                    <a href="/registerO" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-[#46052D] active:text-[#46052D]">Register_organization</a>
+
                     <a href="/findblood" class="text-lg font-semibold text-gray-600 transition duration-100 hover:text-[#46052D] active:text-[#46052D]">FindBlood</a>
                     </nav>
                 <a href="/login" class="hidden rounded-lg bg-black px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-[#46052D] transition duration-100 hover:bg-[#46052D] hover:text-white focus-visible:ring active:text-black-700 md:text-base lg:inline-block">Login</a>
