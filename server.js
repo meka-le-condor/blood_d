@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require('cors');
 const logger = require("morgan");
-const donorController = require('./controllers/donor.controller');
+
 const PORT = process.env.PORT || 4002; 
 app.use(cors());
 

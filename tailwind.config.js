@@ -9,5 +9,6 @@ export const theme = {
     sin: ["Medium 500 "]
     
   },
+  
 };
 export const plugins = [];

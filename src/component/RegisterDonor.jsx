@@ -9,6 +9,7 @@ function RegisterDonor() {
     firstName: '',
     lastName: '',
     address: '',
+    password:'',
     email: '',
     groupe: '',
     lastDonate: ''
@@ -21,6 +22,7 @@ function RegisterDonor() {
       ...formData,
       [name]: value
     });
+    
   }
   function RandMotDePass(){
     const caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:',.<>?";
@@ -44,19 +46,20 @@ function RegisterDonor() {
     // Envoyer les données à votre contrôleur
     axios.post('http://localhost:4002/api/create/donor', formData)
       .then(response => { 
+        if(response.status===401){alert(" cette adress mail existe")}
     
         setFormData({
           firstName: '',
           lastName: '',
           address: '',
+          password:'',
           email: '',
           groupe: '',
           lastDonate: ''
-
         }); 
          // Générer un mot de passe de longueur 12
         const motDePasse =RandMotDePass();
-      
+        setFormData({password:motDePasse})
   
      
         alert("un mot de pass a ete generer automatiquement veillez vous connectez avec votre adress-email ");
@@ -67,7 +70,8 @@ function RegisterDonor() {
         // Gérer les erreurs éventuelles
         toastr.success("Un donateur avec cet e-mail existe déjà!");
         
-       alert("Un donateur avec cet e-mail existe déjà!")
+       
+
       });
   } 
   
@@ -76,7 +80,7 @@ function RegisterDonor() {
         <Header/>
           <div className="bg-white py-6 sm:py-8 lg:py-12">
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-              <div className="mb-10 md:mb-16  text-white bg-gradient-to-r from-[#37182b] to-[#92326d]">
+              <div className="mb-10 md:mb-16  text-white bg-gradient-to-r from-[#9b363e] to-[#4a1721]">
                 <h2 className="mb-4 text-center text-2xl font-bold md:mb-6 lg:text-3xl">Register For Donor</h2>
                 <p className="mx-auto max-w-screen-md text-center text-white md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
               </div>
@@ -115,7 +119,7 @@ function RegisterDonor() {
                   <input type='date' name="lastDonate" value={formData.lastDonate} onChange={handleInputChange} className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-[#46052D] transition duration-100 focus:ring" required />
                 </div>
                 <div className="flex items-center justify-between sm:col-span-2">
-                  <button className="inline-block rounded-lg bg-[#46052D] px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-[#46052D] transition duration-100 hover:bg-black focus-visible:ring active:bg-indigo-700 md:text-base"  type="submit">Send</button>
+                  <button className="inline-block rounded-lg bg-black px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-[#46052D] transition duration-100 hover:bg-black focus-visible:ring active:bg-indigo-700 md:text-base"  type="submit">Send</button>
                   <span className="text-sm text-[#46052D]">*Required</span>
                 </div>
                 <p className="text-xs text-gray-400">By signing up to our newsletter you agree to our <a href="#" className="underline transition duration-100 hover:text-indigo-500 active:text-indigo-600">Privacy Policy</a>.</p>

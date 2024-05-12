@@ -1,5 +1,5 @@
 const db = require("../models");
-const Donor = db.donor;
+const Orga = db.orga;
 
 exports.create = function (req, res) {
     // Valider la requête
@@ -9,27 +9,26 @@ exports.create = function (req, res) {
     }
 
     // Rechercher un donateur avec le même e-mail
-    Donor.findOne({ email: req.body.email })
-        .then(existingDonor => {
-            if (existingDonor) {
+    Orga.findOne({ email: req.body.email })
+        .then(existingorga => {
+            if (existingorga) {
                 // Un donateur avec le même e-mail existe déjà
                 res.status(401).send({ messageC: "Un donateur avec cet e-mail existe déjà!" });
                 return;
             }
 
             // Créer un nouveau donateur
-            const donor = new Donor({
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                address: req.body.address,
+            const orga = new Orga({
+                orgaName: req.body.orgaName,
                 password: req.body.password,
+             
+                address: req.body.address,
                 email: req.body.email,
-                groupe: req.body.groupe,
-                lastDonate: req.body.lastDonate
+             
             });
 
             // Enregistrer le donateur dans la base de données
-            donor.save()
+            orga.save()
                 .then(data => {
                     res.send(data);
                 })

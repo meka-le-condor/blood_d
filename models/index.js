@@ -10,6 +10,8 @@ db.mongoose = mongoose;
 
 db.url = dbConfig.url;
 db.donor = require("./donor.model.js")(mongoose);
+db.orga = require("./orga.model.js")(mongoose);
+
 // db.students = require("./student.model.js")(mongoose);
 // db.movies = require("./movies.model.js")(mongoose);
 module.exports = db;

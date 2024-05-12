@@ -4,13 +4,12 @@ module.exports = mongoose => {
         // name: String,
         // course: String,
         // registered: Boolean,
-        firstName: String,
-        lastName: String,
+        orgaName: String,
+        password:String,
+       
         address: String,
         email: String,
-        password:String,
-        groupe: String,
-        lastDonate: String,
+       
       },
       { timestamps: true }
     );
@@ -21,7 +20,7 @@ module.exports = mongoose => {
       return object;
     });
   
-    const donor = mongoose.model("Donor", schema);
-    return donor;
+    const orga = mongoose.model("Orga", schema);
+    return orga;
   };
   
