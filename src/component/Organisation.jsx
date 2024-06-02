@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React  from 'react'
 
 function Organisation() {
   
@@ -8,7 +8,7 @@ function Organisation() {
         historik des donneur pour l hopital\
         bank de sang regrouper selon de groupe sangain sinon afficher bank vide 
       </div>
-    )
+    ) 
   
 }
 

@@ -43,3 +43,16 @@ exports.create = function (req, res) {
             res.status(500).send({ message: err.message || "Une erreur s'est produite lors de la recherche du donateur." });
         });
 };
+
+exports.findAll = (req, res) => {
+    Donor.find({})
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Une erreur s'est produite lors de la récupération des donateurs."
+            });
+        });
+};
+

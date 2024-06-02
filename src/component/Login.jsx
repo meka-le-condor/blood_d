@@ -3,6 +3,7 @@ import "./index.css"
 import axios from 'axios';
 import Header from './Header';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 function Login()  {  const navigate = useNavigate();
   const [formData, setFormData] = useState({
 
@@ -44,7 +45,7 @@ function Login()  {  const navigate = useNavigate();
              navigate("/orga")
 
           }else{
-            alert("erreur d'authentification");
+            toast.error("erreur d'authentification");
           }
     
 
@@ -55,16 +56,16 @@ function Login()  {  const navigate = useNavigate();
     }
     return (
       <div>
-        <Header/>
+        <Header/><ToastContainer/>
           <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
               <div class="acceuil max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                   <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                     
                       <div class="mt-12 flex flex-col items-center">
-                          <div class="w-full flex-1 mt-8">
+                          <div class="w-full  mr-64 flex-1 mt-8">
                               <div class="flex flex-col items-center">
                                   <button
-                                      class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-[#4a1721] text-white flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                                      class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-[#4a1733] text-white flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                                       <div class="bg-white p-2 rounded-full">
                                           <svg class="w-4" viewBox="0 0 533.5 544.3">
                                               <path

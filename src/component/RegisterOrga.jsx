@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Header from "./Header";
-import toastr from "toastr";
-import { ToastContainer, toast } from 'react-toastify';   
+import { ToastContainer, toast } from 'react-toastify';    
+
 
 function Register_Orga() {
   const [formData, setFormData] = useState({
@@ -44,7 +44,7 @@ function Register_Orga() {
     // Envoyer les données à votre contrôleur
     axios.post('http://localhost:4002/api/create/orga', formData)
       .then(response => { 
-        if(response.status===401){alert(" cette adress mail existe")}
+        if(response.status===401){toast.error("Cette adresse mail existe déjà");}
         setFormData({
          orgaName: '',
     
@@ -58,24 +58,24 @@ function Register_Orga() {
         setFormData({password:motDePasse})
   
      
-        alert("un mot de pass a ete generer automatiquement veillez vous connectez avec votre adress-email ");
-        alert(` mot de pass:${motDePasse}`);
+        toast.success("un mot de pass a ete generer automatiquement veillez vous connectez avec votre adress-email ");
+        toast.info(` mot de pass:${motDePasse}`);
 
       })
       .catch(error => {
         // Gérer les erreurs éventuelles
-        toastr.success("Un donateur avec cet e-mail existe déjà!");
+        toast.info("Un donateur avec cet e-mail existe déjà!");
         
-       alert("Un donateur avec cet e-mail existe déjà!")
+
       });
   } 
   
   return (
     <div>
-        <Header/>
+        <Header/><ToastContainer/>
           <div className="bg-white py-6 sm:py-8 lg:py-12">
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-              <div className="mb-10 md:mb-16  text-white bg-gradient-to-r from-[#9b363e] to-[#4a1721]">
+              <div className="mb-10 md:mb-16  text-white bg-gradient-to-r from-[#dbd4d5] to-[#490f34d8]">
                 <h2 className="mb-4 text-center text-2xl font-bold md:mb-6 lg:text-3xl">Register For Organization</h2>
                 <p className="mx-auto max-w-screen-md text-center text-white md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
               </div>

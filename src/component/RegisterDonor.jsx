@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Header from "./Header";
-import toastr from "toastr";
-import { ToastContainer, toast } from 'react-toastify';   
+
+import { ToastContainer, toast } from 'react-toastify';    
 
 function RegisterDonor() {
   const [formData, setFormData] = useState({
@@ -46,8 +46,8 @@ function RegisterDonor() {
     // Envoyer les données à votre contrôleur
     axios.post('http://localhost:4002/api/create/donor', formData)
       .then(response => { 
-        if(response.status===401){alert(" cette adress mail existe")}
-    
+      
+     if(response.data.success){}
         setFormData({
           firstName: '',
           lastName: '',
@@ -61,15 +61,13 @@ function RegisterDonor() {
         const motDePasse =RandMotDePass();
         setFormData({password:motDePasse})
   
-     
-        alert("un mot de pass a ete generer automatiquement veillez vous connectez avec votre adress-email ");
-        alert(` mot de pass:${motDePasse}`);
+        toast.success("Un mot de passe a été généré automatiquement. Veuillez vous connecter avec votre adresse email.");
+        toast.info(`Mot de passe : ${motDePasse}`);
 
       })
-      .catch(error => {
-        // Gérer les erreurs éventuelles
-        toastr.success("Un donateur avec cet e-mail existe déjà!");
-        
+      .catch(error => {  if(error.status===401){toast.error("Cette adresse mail existe déjà");}
+         // Gérer les erreurs éventuelles
+         toast.error("Une erreur s'est produite lors de l'enregistrement. Veuillez réessayer.");
        
 
       });
@@ -80,10 +78,10 @@ function RegisterDonor() {
         <Header/>
           <div className="bg-white py-6 sm:py-8 lg:py-12">
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-              <div className="mb-10 md:mb-16  text-white bg-gradient-to-r from-[#9b363e] to-[#4a1721]">
+              <div className="mb-10 md:mb-16  text-white bg-gradient-to-r from-[#dbd4d5] to-[#490f34d8]">
                 <h2 className="mb-4 text-center text-2xl font-bold md:mb-6 lg:text-3xl">Register For Donor</h2>
                 <p className="mx-auto max-w-screen-md text-center text-white md:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
-              </div>
+              </div><ToastContainer />
               <form className="mx-auto grid max-w-screen-md gap-4 sm:grid-cols-2" onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="first-name" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">First name*</label>

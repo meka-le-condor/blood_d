@@ -1,8 +1,8 @@
 .app {
   text-align: center;
-    background-image: url("../public/bg.jpeg");
+    background-image: url("../public/bg.png");
   background-repeat: no-repeat;
-  
+  background-attachment: fixed;
   background-size: contain;
   background-position: absolute;
   background-position-x: right;

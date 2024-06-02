@@ -2,20 +2,19 @@ import React from 'react'
 import "../App.css"
 import Header from './Header.jsx';
 function Accueil () {
- 
+
     return (
       <><Header/>
      <div class="app bg-white pb-6 sm:pb-8 lg:pb-12">
       <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
-      
 
           {/* section menu */} 
-            <section class="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
+            <section class="flex mb-4 flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
       
-                <div class="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12 xl:py-24">
-                  <p class="mb-4 font-bold  text-[#46052D] md:mb-6 md:text-lg xl:text-3xl">Bienvenue dans Blood_d</p>
+                <div class=" transition-transform duration-500 transform hover:translate-x-2 flex mb-8 flex-col ml-56 justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12 xl:py-24">
+                  <p class=" animate-bounce mb-4 font-bold  text-[#46052D] md:mb-6 md:text-lg xl:text-3xl">Bienvenue dans Blood_d</p>
 
-                  <h1 class="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">Aidez Nous à aider</h1>
+                  <h1 class="animate-fade-up animate-once animate-duration-[1200ms] animate-delay-1000 mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">Aidez Nous à aider</h1>
 
                   <p class="mb-8 leading-relaxed text-gray-500 md:mb-12 lg:w-4/5 xl:text-lg">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random.</p>
 
@@ -27,8 +26,9 @@ function Accueil () {
                 </div>
               
             </section>
+            
             {/*section stat */}
-              <div class="bg-white py-6 sm:py-8 lg:py-12">
+              <div class=" bg-[#3b0b2352] mb-56 py-6 sm:py-8 lg:py-12">
                 <div class="mx-auto max-w-screen-xl px-4 md:px-8">
 
                   <div class="mb-10 md:mb-16">
@@ -126,7 +126,7 @@ function Accueil () {
                 </div>
               </div>
               {/*section newlestter*/}
-              <div class="bg-white py-6 sm:py-8 lg:py-12">
+              <div class="bg-white py-6 mb-24 sm:py-8 lg:py-12">
                 <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
                   <div class="flex flex-col items-center rounded-lg bg-gray-100 p-4 sm:p-8">
                     <div class="mb-4 sm:mb-8">
